@@ -9,23 +9,29 @@ const { InjectManifest } = require('workbox-webpack-plugin');
 module.exports = () => {
   return {
     mode: 'development',
+    // Specifies entry points
     entry: {
       main: './src/js/index.js',
       install: './src/js/install.js'
     },
+    // Specifies where to output the bundled code
     output: {
       filename: '[name].bundle.js',
       path: path.resolve(__dirname, 'dist'),
     },
+    
     plugins: [
+      // Generates an HTML file from a template
       new HtmlWebpackPlugin({
         template: './index.html',
         title: 'Just Another Text Editor'
       }),
+      // Uses Workbox to inject a service worker into the app, which will enable offline functionality
       new InjectManifest({
         swSrc: './src-sw.js',
         swDest: 'src-sw.js'
       }),
+      // Generates a manifest.json file that contains information about the app
       new WebpackPwaManifest({
         fingerprints: false,
         inject: true,
@@ -45,10 +51,26 @@ module.exports = () => {
         ],
       }),
     ],
-
+    // Specifies the rules for processing different file types
     module: {
       rules: [
-        
+        {
+          // CSS files are processed, bundled, and added to the DOM as a style tag, with the use of style-loader and css-loader
+          test: /\.css$/i,
+          use: ['style-loader', 'css-loader']
+        },
+        {
+          // JS files are processed with babel-loader, transpiling modern JS to ES5 and allowing for cross-browser compatibility
+          test: /\.m?js$/,
+          exclude: /node_modules/,
+          use: {
+            loader: 'babel-loader',
+            options: {
+              presets: ['@babel/preset-env'],
+              plugins: ['@babel/plugin-proposal-object-rest-spread', '@babel/transform-runtime']
+            }
+          }
+        }
       ],
     },
   };
