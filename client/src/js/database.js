@@ -14,12 +14,12 @@ const initdb = async () =>
 
 // TODO: Add logic to a method that accepts some content and adds it to the database
 export const putDb = async (content) => {
-  console.log('PUTTING IN DB');
+  console.log('PUTTING IN DATABASE');
   const db = await openDB('jate', 1);
   const transaction = db.transaction('jate', 'readwrite');
   const store = transaction.objectStore('jate');
   await store.put({ id: 1, value: content });
-  console.log('PUTTING IN DB DONE');
+  console.log('PUTTING IN DATABASE DONE');
 }
 
 // TODO: Add logic for a method that gets all the content from the database
@@ -30,8 +30,12 @@ export const getDb = async () => {
   const store = transaction.objectStore('jate');
   const content = await store.get(1);
   const result = await content;
-  console.log('GETTING FROM DATABASE', result.value);
-  return result?.value;
+  if (result) {
+    console.log('DATA RECIEVED FROM DATABASE', result.value);
+    return result?.value;
+  } else {
+    console.log('NO DATA RECIEVED FROM DATABASE');
+  }
 }
 
 initdb();
