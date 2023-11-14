@@ -46,5 +46,4 @@ window.addEventListener('appinstalled', async () => {
         butInstall.style.display = 'none';
     };
     await hideBtn();
-    console.log('PWA was installed on a previous visit');
 });
