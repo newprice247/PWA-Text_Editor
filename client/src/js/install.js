@@ -29,21 +29,14 @@ butInstall.addEventListener('click', async () => {
     window.deferredPrompt = null;
 
     // Hide the install button
-    let hideBtn = async () => {
-        butInstall.style.display = 'none';
-    };
-    await hideBtn();
-    console.log('PWA was installed successfully');
+    butInstall.style.display = 'none';
 });
 
 
 // Hide the install button if the PWA is already installed
-window.addEventListener('appinstalled', async () => {
+window.addEventListener('appinstalled', () => {
     // Set the deferredPrompt property of the window to null
     window.deferredPrompt = null;
     // Hide the install button
-    let hideBtn = async () => {
-        butInstall.style.display = 'none';
-    };
-    await hideBtn();
+    butInstall.style.display = 'none';
 });
