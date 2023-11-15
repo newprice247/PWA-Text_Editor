@@ -38,5 +38,5 @@ window.addEventListener('appinstalled', () => {
     // Set the deferredPrompt property of the window to null
     window.deferredPrompt = null;
     // Hide the install button
-    butInstall.classList.toggle('hidden', true);
+    butInstall.innerHTML = 'Installed';
 });
