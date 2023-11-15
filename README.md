@@ -15,7 +15,7 @@
   - [Questions](#questions)
   
   ## Installation
-  No installation necessary! [The app is hosted on heroku](https://note-taker-newprice247-e6c2f2c3bf4d.herokuapp.com/notes)
+  No installation necessary! [The app is hosted on heroku](https://np-pwa-text-editor-fa826b6e9b97.herokuapp.com/)
   
   If you would like to install to your local machine:
   * Clone the repository to your local machine and navigate to the folder in your node terminal
