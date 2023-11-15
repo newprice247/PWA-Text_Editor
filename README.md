@@ -24,9 +24,12 @@
   * Navigate to 'localhost:3000' inside your browser to view the app
 
   ## Usage
-  [Click this link to go to the deployed site](https://np-pwa-text-editor-fa826b6e9b97.herokuapp.com/)
 
-  ![Text Editor Screenshot](<Screenshot 2023-11-14 213200.png>)
+  [![Text Editor Screenshot](<Screenshot 2023-11-14 213200.png>)](https://np-pwa-text-editor-fa826b6e9b97.herokuapp.com/)
+
+  Just Another Text Editor is hosted on heroku
+  [Click here to check out the heroku deployed site](https://np-pwa-text-editor-fa826b6e9b97.herokuapp.com/)
+
 
   The app functions as a text editor, allowing text to be entered, edited, and deleted, so start writing some code!
   * To save the code you have written into the database, just unfocus away from the app's current window. In other words, click on another tab, minimize the page, or click some space outside of the browser and the text will automatically save to the database and be reloaded on the page automatically on future visits.
