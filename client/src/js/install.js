@@ -6,7 +6,7 @@ window.addEventListener('beforeinstallprompt', (event) => {
     // Set the deferredPrompt property of the event as the prompt
     window.deferredPrompt = event;
     // Show the install button
-    butInstall.style.display = "block"
+    butInstall.classList.toggle('hidden', false);
     console.log('PWA can be installed');
 });
 
@@ -29,7 +29,7 @@ butInstall.addEventListener('click', async () => {
     window.deferredPrompt = null;
 
     // Hide the install button
-    butInstall.style.display = 'none';
+    butInstall.classList.toggle('hidden', true);
 });
 
 
@@ -37,6 +37,4 @@ butInstall.addEventListener('click', async () => {
 window.addEventListener('appinstalled', () => {
     // Set the deferredPrompt property of the window to null
     window.deferredPrompt = null;
-    // Hide the install button
-    butInstall.style.display = 'none';
 });
